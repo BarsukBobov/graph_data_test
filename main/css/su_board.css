@@ -1,14 +1,24 @@
 html {
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
+    font-family: Calibri, sans-serif;
+}
+
+
+.graph{
+    margin: 10vh;
+    display: flex;
 }
 
 .su-board {
-    top: 30vh;
-    left: 30vh;
-    /*transform: translate(-50%, 0);*/
-    position: absolute;
-}
 
+    position: relative;
+}
+.edge{
+
+    color: #959595;
+    display: block;
+    margin: 0 10px;
+}
 
 .su-cell {
     position: absolute;
@@ -19,7 +29,7 @@ html {
 
 .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 200px;
     background-color: black;
     color: gray;
     text-align: center;
@@ -30,7 +40,7 @@ html {
     z-index: 1;
     bottom: 150%;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -100px;
 }
 
 
@@ -58,67 +68,3 @@ html {
 }
 
 
-
- /*.bubble {*/
- /*    display: inline;*/
- /*    position: relative;*/
- /*    background: #000000;*/
- /*    color: #FFFFFF;*/
- /*    font-family: Arial;*/
- /*    font-size: 20px;*/
- /*    line-height: 120px;*/
- /*    text-align: center;*/
- /*    width: 250px;*/
- /*    height: 120px;*/
- /*    border-radius: 10px;*/
- /*    padding: 0px;*/
- /*}*/
-/*.bubble:after {*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    display: block;*/
-/*    width: 0;*/
-/*    z-index: 1;*/
-/*    border-style: solid;*/
-/*    border-color: #000000 transparent;*/
-/*    border-width: 13px 12px 0;*/
-/*    bottom: -13px;*/
-/*    left: 50%;*/
-/*    margin-left: -12px;*/
-/*}*/
-
-
-
-/*.su-cell:hover::after {*/
-/*    outline: 1px solid #959595;*/
-/*    content: attr(aria-label);*/
-/*    */
-/*}*/
-
-/*.su-cell:active::after {*/
-/*    outline: 3px solid #959595;*/
-/*    */
-/*}*/
-
-/*.su-cell:hover .tip{*/
-/*    display:block;*/
-/*}*/
-
-
-/*.tip,*/
-/*span.support::before!*если используется атрибут data-title*! {*/
-/*    display: none;*/
-/*    position: absolute;*/
-/*    z-index: 9998;*/
-/*    top: 0;*/
-/*    left: 100%;*/
-/*    background: #EDEDED;*/
-/*    text-align: left;*/
-/*    color: #000;*/
-/*    cursor: default;*/
-/*    padding: 5px;*/
-/*    margin: -15px 0 0 10px; !*регулирует положение, значения зависят от применяемой конструкции*!*/
-/*    width: 200px;*/
-/*    min-height: 50px;*/
-/*    height: auto;*/
-/*}*/
