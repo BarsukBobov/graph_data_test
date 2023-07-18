@@ -18,13 +18,6 @@ function date_array(date){
     }
     return date_str_array
 }
-function create_rows_array(){
-    let cross_array_board=[]
-    for(let i = 0; i < 357; i++){
-        cross_array_board[i]=i
-    }
-    return cross_array_board
-}
 
 function get_color(contributions){
     if (contributions===undefined) return color="#EDEDED"
@@ -39,13 +32,13 @@ function create_game_board(BASE_BOARD){
     let html=''
     const size=20
     BASE_BOARD.forEach((date)=>{
-        const left =25*parseInt(i/7)
+        const left =25*parseInt(i/7)+"px"
         const top =25*parseInt(i%7)+"px"
         const contributions=json_dict[date]
         console.log(contributions)
         const color=get_color(contributions)
             html+=`
-<div data-cell="${i}" aria-label="${date}" class="su-cell" style="top: ${top}; left: ${left}px; width: ${size}px; height: ${size}px; background-color: ${color}">
+<div data-cell="${i}" aria-label="${date}" class="su-cell" style="top: ${top}; left: ${left}; width: ${size}px; height: ${size}px; background-color: ${color}">
 </div>`
         i++
     })
@@ -55,13 +48,11 @@ function create_game_board(BASE_BOARD){
 
 }
 
-BASE_BOARD=create_rows_array()
+
 response=httpGet("https://dpg.gg/test/calendar.json")
-console.log(response)
-var json_dict = JSON.parse(response);
-console.log(json_dict["2022-05-31"])
+const json_dict = JSON.parse(response);
 var date = new Date();
-delay_week=7-date.getDay()
+const delay_week=7-date.getDay()
 date.setDate(date.getDate() + delay_week)
 date_str_array = date_array(date)
 console.log(date_str_array)
