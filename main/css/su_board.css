@@ -2,11 +2,123 @@ html {
     box-sizing: border-box;
 }
 
-
-.su-cell {
+.su-board {
+    top: 30vh;
+    left: 30vh;
+    /*transform: translate(-50%, 0);*/
     position: absolute;
-    background: #fff;
-    outline: 1px solid #959595;
 }
 
 
+.su-cell {
+    position: absolute;
+    cursor: pointer;
+}
+
+
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: gray;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+
+.tooltiptext::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-color: #000000 transparent;
+    border-width: 12px 9px 0;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -8px;
+}
+
+
+.su-cell:hover {
+    outline: 1px solid #959595;
+}
+
+.su-cell:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
+ /*.bubble {*/
+ /*    display: inline;*/
+ /*    position: relative;*/
+ /*    background: #000000;*/
+ /*    color: #FFFFFF;*/
+ /*    font-family: Arial;*/
+ /*    font-size: 20px;*/
+ /*    line-height: 120px;*/
+ /*    text-align: center;*/
+ /*    width: 250px;*/
+ /*    height: 120px;*/
+ /*    border-radius: 10px;*/
+ /*    padding: 0px;*/
+ /*}*/
+/*.bubble:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    display: block;*/
+/*    width: 0;*/
+/*    z-index: 1;*/
+/*    border-style: solid;*/
+/*    border-color: #000000 transparent;*/
+/*    border-width: 13px 12px 0;*/
+/*    bottom: -13px;*/
+/*    left: 50%;*/
+/*    margin-left: -12px;*/
+/*}*/
+
+
+
+/*.su-cell:hover::after {*/
+/*    outline: 1px solid #959595;*/
+/*    content: attr(aria-label);*/
+/*    */
+/*}*/
+
+/*.su-cell:active::after {*/
+/*    outline: 3px solid #959595;*/
+/*    */
+/*}*/
+
+/*.su-cell:hover .tip{*/
+/*    display:block;*/
+/*}*/
+
+
+/*.tip,*/
+/*span.support::before!*если используется атрибут data-title*! {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    z-index: 9998;*/
+/*    top: 0;*/
+/*    left: 100%;*/
+/*    background: #EDEDED;*/
+/*    text-align: left;*/
+/*    color: #000;*/
+/*    cursor: default;*/
+/*    padding: 5px;*/
+/*    margin: -15px 0 0 10px; !*регулирует положение, значения зависят от применяемой конструкции*!*/
+/*    width: 200px;*/
+/*    min-height: 50px;*/
+/*    height: auto;*/
+/*}*/
