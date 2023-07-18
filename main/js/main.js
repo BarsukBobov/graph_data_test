@@ -23,6 +23,21 @@ const rus_months={
     12:"Декабрь"
 }
 
+const short_rus_months={
+    1:"Янв.",
+    2:"Февр.",
+    3:"Март",
+    4:"Апр.",
+    5:"Май",
+    6:"Июнь",
+    7:"Июль",
+    8:"Авг.",
+    9:"Сент.",
+    10:"Окт.",
+    11:"Нояб.",
+    12:"Дек."
+}
+
 function httpGet(theUrl)
 {
     const xmlHttp = new XMLHttpRequest();
@@ -43,7 +58,9 @@ function date_array(date){
         const date_tip=  `${rus_months[month]} ${day}, ${year}`;
         date_tips_array.unshift(date_tip)
     }
-    return [date_str_array, date_tips_array]
+    date.setDate(date.getDate() + 1)
+    const first_month=date.getMonth() + 1;
+    return [date_str_array, date_tips_array, first_month]
 }
 
 function get_color(contributions){
@@ -54,7 +71,7 @@ function get_color(contributions){
     if (contributions>=30) return color="#254E77"
 }
 
-function create_game_board(date_str_array, date_tips_array){
+function create_game_board(date_str_array, date_tips_array, first_month){
     let i=0
     let html=''
     const size=20
@@ -78,6 +95,8 @@ function create_game_board(date_str_array, date_tips_array){
     const board=document.querySelector(".su-board")
     board.insertAdjacentHTML("afterbegin", html)
     const days_of_week=["Пн","Cр", "Пт"]
+
+    // дни недели
     const edge=document.querySelector(".edge")
     html_days=""
     i=0
@@ -86,6 +105,17 @@ function create_game_board(date_str_array, date_tips_array){
         i++
     }
     edge.insertAdjacentHTML("afterbegin", html_days)
+
+    // месяцы
+    const edge2=document.querySelector(".edge2")
+    console.log(first_month)
+    html_month=""
+    i=first_month-1
+    for (let j=0;j<12;j++){
+        html_month+=`<div style="position: absolute; top: -20px; left: ${j*94}px">${short_rus_months[i%12+1]}</div>`
+        i++
+    }
+    edge2.insertAdjacentHTML("afterbegin", html_month)
 
 
 }
@@ -96,9 +126,9 @@ const json_dict = JSON.parse(response);
 var date = new Date();
 const delay_week=7-date.getDay()
 date.setDate(date.getDate() + delay_week)
-const [date_str_array, date_tips_array] = date_array(date)
+const [date_str_array, date_tips_array, first_month] = date_array(date)
 console.log(date_str_array)
 
-create_game_board(date_str_array, date_tips_array)
+create_game_board(date_str_array, date_tips_array, first_month)
 
 

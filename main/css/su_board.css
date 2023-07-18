@@ -3,14 +3,22 @@ html {
     font-family: Calibri, sans-serif;
 }
 
+.main{
+    margin: 20vh 10vh;
 
+}
+.edge2{
+    color: gray;
+    display: block;
+    position: relative;
+    margin: 50px;
+    /*flex-direction: row;*/
+}
 .graph{
-    margin: 10vh;
     display: flex;
 }
 
 .su-board {
-
     position: relative;
 }
 .edge{
